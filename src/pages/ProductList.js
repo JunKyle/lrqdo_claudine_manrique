@@ -1,6 +1,14 @@
 import { useState, useEffect } from 'react';
-import ProductSingle from './ProductSingle';
 import { useFetch } from './../commons/useFetch';
+import { Link } from "react-router-dom";
+import ProductSingle from './ProductSingle';
+
+const routes = [
+  {
+    path: "/produit/{id}",
+    component: ProductSingle
+  }
+];
 
 function ProductList () {
 	const [search, setSearch] = useState('');
@@ -54,7 +62,10 @@ function ProductList () {
     		{productList && productList.count > 0  &&
 				<div> 
 					{productList.products.map((product) => 
-						<ProductSingle key={product.id} product={product} />
+           				<Link to={"/produit/" + product.id}>
+           					<div>{product.product_name}</div>
+           				</Link>
+						
 					)}
 				</div>
     		}
