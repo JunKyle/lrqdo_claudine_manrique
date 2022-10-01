@@ -1,0 +1,159 @@
+html {
+  height: 100%;
+}
+body {
+  min-height: 100%;
+}
+
+#root {
+	height: 100%;
+
+	a {
+		text-decoration: none;
+	}
+}
+
+.App {
+	height: 100vh;
+}
+
+.Nav {
+	display: block;
+	background-color: white;
+	border-bottom: 1px solid #e3e3e3;
+	width: 100%;
+	height: 48px;
+
+	&__link {
+    	padding: 12px 24px;
+    	display: block;
+    	color: black;
+	}
+}
+
+.Home {
+	margin: 0 auto;
+	padding: 24px;
+	background-color: #efefef;
+
+	&__title{
+		margin: 0;
+		padding: 24px 0;
+	}
+	
+	@media (min-width: 928px) {    
+		width: 768px;
+	}
+}
+
+.Form {
+
+	&__form {
+		width: 100%;
+		margin-bottom: 24px;
+		display: flex;
+		align-items: center;
+	}
+	
+	&__input {
+		width: 70%;
+		height: 35px;
+		margin-right: 12px;
+		font-size: 24px;
+	}
+
+	&__submit {
+		border-radius: 50px;
+		background-color: #ffab00;
+		border: none;
+		height: 35px;
+		font-size: 16px;
+		width: 23%;
+		cursor: pointer;
+	}
+
+	&__message {
+		width: 100%;
+		margin: 0 auto;
+		font-size: 24px;
+		display: block;
+    	margin-bottom: 24px;
+    	text-align: center;
+	}
+}
+
+.ProductList {
+
+	&__item {
+		display: flex;
+	    justify-content: space-between;
+	    align-items: center;
+    	border-bottom: 1px solid #c7c7c7;
+    	width: 100%;
+    	padding: 24px 0;
+
+    	&Label {
+    		font-size: 16px;
+    		color: black;
+    		width: 50%;
+    	}
+
+    	&Container {
+    		overflow: hidden;
+    		width: 120px;
+
+    		@media (min-width: 928px) {  
+    			overflow: initial;
+			}
+    	}
+
+    	&Image {
+    		height: 120px;    		
+    		float: right;
+    	}
+
+    	&:hover {
+
+    		.ProductList__itemLabel {
+    			color: #7c7c7c;
+    		}
+    	}
+	}
+}
+
+.ProductSingle {
+	margin: 0 auto;
+	padding: 0 24px;
+	background-color: #efefef;
+	
+	@media (min-width: 928px) {    
+		width: 768px;
+	}
+
+	&__title{
+		margin: 0;
+		padding-top: 24px;
+	}
+
+	&__container {
+		display: flex;		
+    	flex-direction: column;
+
+    	@media (min-width: 928px) { 
+    		flex-direction: row;
+		}
+	}
+
+	&__image {
+	    display: block;
+    	margin: 24px auto;
+		width: 250px;
+		height: fit-content;
+
+		@media (min-width: 928px) { 
+    		margin-top: 0;
+    		margin-left: 24px;
+		}
+	}
+	
+}

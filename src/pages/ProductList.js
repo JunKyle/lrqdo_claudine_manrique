@@ -48,32 +48,44 @@ function ProductList () {
 
 	return (
 		<>
-				<main>
-				<form onSubmit={handleSubmit}>
-					<input type="text"
-	          			onChange={(e) => setSearch(e.target.value)}/>
-		    		<input type="submit" value="Submit" disabled={search === ''} />
-	    		</form>
-	    		{errorMessage !== '' && 
-	    			<span>{errorMessage}</span>
-	    		}
-	    		{loadingState && 
-	    			<span>chargement en cours...</span>
-	    		}
-	    		{productList && productList.count > 0  &&
+			<section className="Home">
+				<h1 className="Home__title">Rechercher un produit</h1>
+				<div className="Home__form Form">
+					<form className="Form__form" 
+						  onSubmit={handleSubmit}>
+						<input className="Form__input"
+							   type="text"
+		          			   onChange={(e) => setSearch(e.target.value)}/>
+			    		<input className="Form__submit"
+			    			   type="submit" 
+			    			   value="valider" 
+			    			   disabled={search === ''} />
+		    		</form>
+		    		{loadingState && 
+		    			<span className="Form__message" >chargement en cours...</span>
+		    		}
+		    		{errorMessage !== '' && 
+		    			<span className="Form__message">{errorMessage}</span>
+		    		}
+	    		</div>
+	    		{productList && productList.count > 0  ?
 					<div className="ProductList"> 
 						{productList.products.map((product, index) => 
 	           				<Link className="ProductList__item"
 	           					  key={index}
 	           				      to={"/produit/" + product.id}>
-	           					<img src={product.image_front_small_url}
-	           						 alt={product.product_name} />
-	           					<div>{product.product_name}</div>
+	           					<span className="ProductList__itemLabel">{product.product_name}</span>
+	           					<div className="ProductList__itemContainer">
+		           					<img className="ProductList__itemImage" 
+		           						 src={product.image_front_small_url}
+		           						 alt={product.product_name} />
+           						</div>
 	           				</Link>						
-						)}
-					</div>
+						)}					
+					</div> :
+	    			<span className="Form__message">Aucun résultat</span>	
 	    		}
-    		</main>
+    		</section>
 		</>
 	);
 }

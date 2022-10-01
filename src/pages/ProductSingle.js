@@ -20,32 +20,38 @@ function ProductSingle (props) {
 
 	return (
 		<>
-			<main>
-				<div className="ProductSingle">
-					<h1 className="ProductSingle__title">{productItem.product_name}</h1>
+			<section className="ProductSingle">
+				<h1 className="ProductSingle__title">{productItem.product_name}</h1>
+				<div className="ProductSingle__container">
+					<div className="ProductSingle__wrapper">
+		    		{productItem && productItem.categories &&
+						<>
+							<h2 className="ProductSingle__subtitle">Catégories</h2>
+							<p>{productItem.categories}</p>
+						</>
+					}
+					{productItem && productItem.allergens_hierarchy && productItem.allergens_hierarchy.length > 0 &&
+						<>
+							<h2 className="ProductSingle__subtitle">Liste des allergènes</h2>
+							<ul>
+							{productItem.allergens_hierarchy.map((allergen, index) => 
+		           				<li>{allergen}</li>	
+							)}
+							</ul>
+						</>
+					}
+					{productItem && productItem.ingredients_text && 
+						<>
+							<h2 className="ProductSingle__subtitle">Ingrédients</h2>
+							<p>{productItem.ingredients_text}</p>
+						</>
+					}
+					</div>
 					<img className="ProductSingle__image"
 						 src={productItem.image_front_url}
 						 alt={productItem.product_name} />
-	    		{productItem && productItem.categories &&
-					<>
-						<h2 className="ProductSingle__subtitle">Catégories</h2>
-						<div className="ProductSingle__paragraph">{productItem.categories}</div>
-					</>
-				}
-				{productItem && productItem.allergens_hierarchy &&
-					<>
-						<h2 className="ProductSingle__subtitle">Liste des allergènes</h2>
-						<div className="ProductSingle__paragraph">{productItem.allergens_hierarchy}</div>
-					</>
-				}
-				{productItem && productItem.ingredients_text && 
-					<>
-						<h2 className="ProductSingle__subtitle">Ingrédients</h2>
-						<div className="ProductSingle__paragraph">{productItem.ingredients_text}</div>
-					</>
-				}
 				</div>
-			</main>
+			</section>
 		</>
 	);
 }
