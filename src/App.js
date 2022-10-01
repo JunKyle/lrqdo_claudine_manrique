@@ -9,7 +9,7 @@ import {
 
 const routes = [
   {
-    path: "/produits",
+    path: "/",
     component: ProductList
   },
   {
@@ -24,13 +24,13 @@ function App() {
       <div>
         <ul>
           <li>
-            <Link to="/produits">Rechercher un produit</Link>
+            <Link to="/">Rechercher un produit</Link>
           </li>
         </ul>
 
         <hr />
         <Routes>
-          <Route path="/produits" element={<ProductList />} />
+          <Route path="/" element={<ProductList />} />
           <Route path={"/produit/:id"} element={<ProductSingle />} />
         </Routes>
       </div>
