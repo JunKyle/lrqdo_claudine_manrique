@@ -1,4 +1,4 @@
-# La Ruche Qui dit Oui with Open Food App
+# La Ruche Qui dit Oui with Open Food Facts
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
