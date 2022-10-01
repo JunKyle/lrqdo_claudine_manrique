@@ -10,7 +10,7 @@ const routes = [
   }
 ];
 
-function ProductList () {
+function Home () {
 	const [search, setSearch] = useState('');
 	const [url, setUrl] = useState('');
 	const [productList, setProductList] = useState({});
@@ -68,7 +68,7 @@ function ProductList () {
 		    			<span className="Form__message">{errorMessage}</span>
 		    		}
 	    		</div>
-	    		{productList && productList.count > 0  ?
+	    		{productList && productList.count > 0  &&
 					<div className="ProductList"> 
 						{productList.products.map((product, index) => 
 	           				<Link className="ProductList__item"
@@ -82,7 +82,9 @@ function ProductList () {
            						</div>
 	           				</Link>						
 						)}					
-					</div> :
+					</div>
+	    		}
+	    		{!loadingState && productList && productList.count === 0 &&
 	    			<span className="Form__message">Aucun résultat</span>	
 	    		}
     		</section>
@@ -90,4 +92,4 @@ function ProductList () {
 	);
 }
 
-export default ProductList;
+export default Home;

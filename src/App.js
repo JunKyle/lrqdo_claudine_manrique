@@ -1,4 +1,4 @@
-import ProductList from './pages/ProductList';
+import Home from './pages/Home';
 import ProductSingle from './pages/ProductSingle';
 import './App.scss';
 import {
@@ -11,7 +11,7 @@ import {
 const routes = [
 {
     path: "/",
-    component: ProductList
+    component: Home
 },
 {
     path: "/produit/{id}",
@@ -28,7 +28,7 @@ function App() {
         </nav>
         <main className="App">
             <Routes>
-                <Route path="/" element={<ProductList />} />
+                <Route path="/" element={<Home />} />
                 <Route path={"/produit/:id"} element={<ProductSingle />} />
             </Routes>
         </main>

@@ -35,7 +35,7 @@ function ProductSingle (props) {
 							<h2 className="ProductSingle__subtitle">Liste des allergènes</h2>
 							<ul>
 							{productItem.allergens_hierarchy.map((allergen, index) => 
-		           				<li>{allergen}</li>	
+		           				<li key={index}>{allergen}</li>	
 							)}
 							</ul>
 						</>
